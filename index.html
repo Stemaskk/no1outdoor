@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Outdoors — Unified Checker</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="container">
+    <h1>Outdoors Questionnaire</h1>
+    <p class="subtitle">Answer all questions and click “Check Answers”. Get them all right to reveal the code.</p>
+</header>
+
+<main class="container">
+    <form id="quiz-form" class="qa-form" novalidate>
+        <section class="card" aria-labelledby="out-title">
+            <h2 id="out-title">Outdoors</h2>
+
+            <!-- Q1 -->
+            <fieldset class="q">
+                <legend>1) What is located next to the cafeteria?</legend>
+                <div class="choices">
+                    <label><input type="radio" name="out-nextto-cafe" value="Fountain"> Fountain</label>
+                    <label><input type="radio" name="out-nextto-cafe" value="Pond"> Pond</label>
+                    <label><input type="radio" name="out-nextto-cafe" value="Hiking Trail"> Hiking Trail</label>
+                    <label><input type="radio" name="out-nextto-cafe" value="Forest"> Forest</label>
+                </div>
+            </fieldset>
+
+            <!-- Q2 -->
+            <fieldset class="q">
+                <legend>2) What is the <strong>building number</strong> of Starbucks at Ohlone?</legend>
+                <input id="out-starbucks" name="out-starbucks" type="text" inputmode="numeric" placeholder="e.g., 19" required />
+            </fieldset>
+
+            <!-- Q3 -->
+            <fieldset class="q">
+                <legend>3) Which building is located closest to the gym?</legend>
+                <div class="choices">
+                    <label><input type="radio" name="out-near-gym" value="Building 7"> Building 7</label>
+                    <label><input type="radio" name="out-near-gym" value="Building 3"> Building 3</label>
+                    <label><input type="radio" name="out-near-gym" value="Building 1"> Building 1</label>
+                    <label><input type="radio" name="out-near-gym" value="Building 2"> Building 2</label>
+                </div>
+            </fieldset>
+
+            <!-- Q4 -->
+            <fieldset class="q">
+                <legend>4) Where does the trail next to the parking garage lead to?</legend>
+                <input id="out-trail" name="out-trail" type="text" placeholder="e.g., Mission Peak" required />
+                <small class="help">Not case sensitive.</small>
+            </fieldset>
+
+            <!-- Q5 -->
+            <fieldset class="q">
+                <legend>5) What are some animals in the pond? (Select all that apply)</legend>
+                <div class="choices grid">
+                    <label><input type="checkbox" name="out-animals" value="Frogs"> Frogs</label>
+                    <label><input type="checkbox" name="out-animals" value="Turtles"> Turtles</label>
+                    <label><input type="checkbox" name="out-animals" value="Koi Fish"> Koi Fish</label>
+                    <label><input type="checkbox" name="out-animals" value="Baby Alligators"> Baby Alligators</label>
+                </div>
+            </fieldset>
+
+            <div class="actions">
+                <button id="checkAll" type="submit" class="btn">Check Answers</button>
+                <button type="button" class="btn ghost" id="resetAll">Reset</button>
+            </div>
+        </section>
+    </form>
+
+    <section class="card" aria-labelledby="results-title">
+        <h2 id="results-title">Results</h2>
+        <output id="results" class="output" aria-live="polite"></output>
+    </section>
+</main>
+
+<!-- Modal -->
+<div id="modal-overlay" class="overlay hidden" aria-hidden="true"></div>
+<div id="access-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <h3 id="modal-title">Access Granted</h3>
+    <p>Your code is:</p>
+    <pre class="access-code">PQND"</pre>
+    <div class="modal-actions">
+        <button id="modal-ok" class="btn">OK</button>
+    </div>
+</div>
+
+<footer class="container footer">
+    <small>All checking is done locally in your browser.</small>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
